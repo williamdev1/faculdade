@@ -1,0 +1,15 @@
+C:\Users\wfochezatto\programacao-oo\aula03\SistemaGestaoEventos\SistemaGestaoEventos\bin\Debug\net8.0\SistemaGestaoEventos.exe
+C:\Users\wfochezatto\programacao-oo\aula03\SistemaGestaoEventos\SistemaGestaoEventos\bin\Debug\net8.0\SistemaGestaoEventos.deps.json
+C:\Users\wfochezatto\programacao-oo\aula03\SistemaGestaoEventos\SistemaGestaoEventos\bin\Debug\net8.0\SistemaGestaoEventos.runtimeconfig.json
+C:\Users\wfochezatto\programacao-oo\aula03\SistemaGestaoEventos\SistemaGestaoEventos\bin\Debug\net8.0\SistemaGestaoEventos.dll
+C:\Users\wfochezatto\programacao-oo\aula03\SistemaGestaoEventos\SistemaGestaoEventos\bin\Debug\net8.0\SistemaGestaoEventos.pdb
+C:\Users\wfochezatto\programacao-oo\aula03\SistemaGestaoEventos\SistemaGestaoEventos\obj\Debug\net8.0\SistemaGestaoEventos.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\wfochezatto\programacao-oo\aula03\SistemaGestaoEventos\SistemaGestaoEventos\obj\Debug\net8.0\SistemaGestaoEventos.AssemblyInfoInputs.cache
+C:\Users\wfochezatto\programacao-oo\aula03\SistemaGestaoEventos\SistemaGestaoEventos\obj\Debug\net8.0\SistemaGestaoEventos.AssemblyInfo.cs
+C:\Users\wfochezatto\programacao-oo\aula03\SistemaGestaoEventos\SistemaGestaoEventos\obj\Debug\net8.0\SistemaGestaoEventos.csproj.CoreCompileInputs.cache
+C:\Users\wfochezatto\programacao-oo\aula03\SistemaGestaoEventos\SistemaGestaoEventos\obj\Debug\net8.0\SistemaGestaoEventos.sourcelink.json
+C:\Users\wfochezatto\programacao-oo\aula03\SistemaGestaoEventos\SistemaGestaoEventos\obj\Debug\net8.0\SistemaGestaoEventos.dll
+C:\Users\wfochezatto\programacao-oo\aula03\SistemaGestaoEventos\SistemaGestaoEventos\obj\Debug\net8.0\refint\SistemaGestaoEventos.dll
+C:\Users\wfochezatto\programacao-oo\aula03\SistemaGestaoEventos\SistemaGestaoEventos\obj\Debug\net8.0\SistemaGestaoEventos.pdb
+C:\Users\wfochezatto\programacao-oo\aula03\SistemaGestaoEventos\SistemaGestaoEventos\obj\Debug\net8.0\SistemaGestaoEventos.genruntimeconfig.cache
+C:\Users\wfochezatto\programacao-oo\aula03\SistemaGestaoEventos\SistemaGestaoEventos\obj\Debug\net8.0\ref\SistemaGestaoEventos.dll
