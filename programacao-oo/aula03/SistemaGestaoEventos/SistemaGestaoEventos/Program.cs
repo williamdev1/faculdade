@@ -1,4 +1,5 @@
-﻿using System.Net.NetworkInformation;
+﻿using System.Diagnostics;
+using System.Net.NetworkInformation;
 using SistemaGestaoEventos;
 
 internal class Program
@@ -39,6 +40,7 @@ internal class Program
         return palestrante;
     }
     private static Participante CadastrarParticipante()
+
     {
         Console.WriteLine("Informe o nome: ");
         var nome = Console.ReadLine();
@@ -59,6 +61,42 @@ internal class Program
         return participante;
 
     }
+
+    private static Evento CadastrarEvento()
+    {
+        Console.WriteLine("Informe a hora de início:");
+        var inicio = Console.ReadLine();
+        Console.WriteLine("Informe a hora do fim:");
+        var fim = Console.ReadLine();
+        Console.WriteLine("Informe o local:");
+        var local = Console.ReadLine();
+        Console.WriteLine("Informe as palestras:");
+        int def = 0;
+        while(def != 0)
+        {
+            Console.WriteLine("0 - Escolhi as palestras");
+            Console.WriteLine("1 - Adicionar palestra");
+        }
+        //var palestra[] = Console.ReadLine();
+
+        Evento evento = new Evento();
+        evento.Id = Guid.NewGuid().ToString();
+        evento.Inicio = DateTime.Parse(inicio);
+        evento.Fim = DateTime.Parse(fim);
+        //evento.Local = local;
+        //evento.Palestras = new palestra[0];
+
+        return evento;
+    }
+    private static Palestra CadastrarPalestra()
+    {
+        Console.WriteLine("Informe o titulo");
+        var titulo = Console.ReadLine();
+
+        Palestra palestra = new Palestra();
+        palestra.Titulo = titulo;
+        return palestra;
+    }
     static Palestrante[] AdicionarPalestrante(Palestrante cliente)
     {
         Palestrante[] novoVetor = new Palestrante[todosPalestrantes.Length + 1];
@@ -76,6 +114,7 @@ internal class Program
     }
 
     static Participante[] AdicionarParticipante(Participante cliente)
+
     {
         Participante[] novoVetor = new Participante[todosParticipantes.Length + 1];
 
@@ -90,10 +129,32 @@ internal class Program
 
         return novoVetor;
     }
-
+    static Palestra[] AdicionarPalestra (Palestra palestra)
+    {
+        Palestra[] novoVetor = new Palestra[todasPalestras.Length + 1];
+        int cont;
+        for(cont = 0; cont< todasPalestras.Length; cont++)
+        {
+            novoVetor[cont] = todasPalestras[cont];
+        }
+        novoVetor[novoVetor.Length - 1] = palestra;
+        return novoVetor;
+    }
+    static Evento[] AdicionarEvento(Evento evento)
+    {
+        Evento[] novoVetor = new Evento[todosEventos.Length + 1];
+        int cont;
+        for (cont = 0; cont < todosEventos.Length; cont++)
+        {
+            novoVetor[cont] = todosEventos[cont];
+        }
+        novoVetor[novoVetor.Length - 1] = evento;
+        return novoVetor;
+    }
     static Participante[] todosParticipantes = [];
     static Palestrante[] todosPalestrantes = [];
-
+    static Evento[] todosEventos = [];
+    static Palestra[] todasPalestras = [];
     private static void Main(string[] args)
     {
         Local localDoEvento;
@@ -106,8 +167,13 @@ internal class Program
         {
             Console.WriteLine("10 - Cadastrar Local");
             Console.WriteLine("20 - Cadastrar Participante");
+            Console.WriteLine("21 - Listar Participantes");
             Console.WriteLine("30 - Cadastrar Palestrante");
-            Console.WriteLine("31 - Listar todos os Palestrantes");
+            Console.WriteLine("31 - Criar Palestra");
+            Console.WriteLine("32 - Listar Palestrantes");
+            Console.WriteLine("33 - Listar Palestras");
+            Console.WriteLine("40 - Criar Evento");
+            Console.WriteLine("41 - Listar Eventos");
             Console.WriteLine("99 - Sair do sistema");
             opcao = int.Parse(Console.ReadLine());
 
@@ -115,11 +181,21 @@ internal class Program
             {
                 localDoEvento = CadastrarLocal();
             }
+
             else if (opcao == 20)
             {
                 var novoParticipante = CadastrarParticipante();
                 todosParticipantes = AdicionarParticipante(novoParticipante);
             }
+
+            else if (opcao == 21)
+            {
+                foreach (var item in todosParticipantes)
+                {
+                    Console.WriteLine($"{item.Nome} - {item.Email} - {item.Telefone} - {item.CPF }");
+                }
+            }
+
             else if (opcao == 30)
             {
                 //Pede para o usuario as informacoes e gera o objeto Palestrante
@@ -127,12 +203,32 @@ internal class Program
                 //aqui esta adicionando no vetor de todosPalestrantes.
                 todosPalestrantes = AdicionarPalestrante(novoPalestrante);
             }
+
             else if (opcao == 31)
+            {
+                var novaPalestra = CadastrarPalestra();
+                todasPalestras = AdicionarPalestra(novaPalestra);
+            }
+            else if (opcao == 32)
             {
                 foreach (var item in todosPalestrantes)
                 {
                     Console.WriteLine($"{item.Nome} - {item.Email} - {item.Telefone}");
                 }   
+            }
+
+            else if (opcao == 33)
+            {
+                foreach (var item in todasPalestras)
+                {
+                    Console.WriteLine($"{item.Titulo}");
+                }
+            }
+
+            else if (opcao == 40)
+            {
+                var novoEvento = CadastrarEvento();
+                todosEventos = AdicionarEvento(novoEvento);
             }
 
         }while(opcao != 99);

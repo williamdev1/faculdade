@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\wfochezatto\\programacao-oo\\aula03\\SistemaGestaoEventos\\SistemaGestaoEventos\\SistemaGestaoEventos.csproj": {}
+    "C:\\Users\\wfochezatto\\faculdade\\programacao-oo\\aula03\\SistemaGestaoEventos\\SistemaGestaoEventos\\SistemaGestaoEventos.csproj": {}
   },
   "projects": {
-    "C:\\Users\\wfochezatto\\programacao-oo\\aula03\\SistemaGestaoEventos\\SistemaGestaoEventos\\SistemaGestaoEventos.csproj": {
+    "C:\\Users\\wfochezatto\\faculdade\\programacao-oo\\aula03\\SistemaGestaoEventos\\SistemaGestaoEventos\\SistemaGestaoEventos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\wfochezatto\\programacao-oo\\aula03\\SistemaGestaoEventos\\SistemaGestaoEventos\\SistemaGestaoEventos.csproj",
+        "projectUniqueName": "C:\\Users\\wfochezatto\\faculdade\\programacao-oo\\aula03\\SistemaGestaoEventos\\SistemaGestaoEventos\\SistemaGestaoEventos.csproj",
         "projectName": "SistemaGestaoEventos",
-        "projectPath": "C:\\Users\\wfochezatto\\programacao-oo\\aula03\\SistemaGestaoEventos\\SistemaGestaoEventos\\SistemaGestaoEventos.csproj",
+        "projectPath": "C:\\Users\\wfochezatto\\faculdade\\programacao-oo\\aula03\\SistemaGestaoEventos\\SistemaGestaoEventos\\SistemaGestaoEventos.csproj",
         "packagesPath": "C:\\Users\\wfochezatto\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\wfochezatto\\programacao-oo\\aula03\\SistemaGestaoEventos\\SistemaGestaoEventos\\obj\\",
+        "outputPath": "C:\\Users\\wfochezatto\\faculdade\\programacao-oo\\aula03\\SistemaGestaoEventos\\SistemaGestaoEventos\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\wfochezatto\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -60,7 +60,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.418/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.419/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
