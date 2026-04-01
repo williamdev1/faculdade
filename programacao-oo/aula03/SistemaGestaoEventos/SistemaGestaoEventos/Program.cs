@@ -62,32 +62,53 @@ internal class Program
 
     }
 
-    private static Evento CadastrarEvento()
+    public static Evento CadastrarEvento()
     {
         Console.WriteLine("Informe a hora de início:");
         var inicio = Console.ReadLine();
         Console.WriteLine("Informe a hora do fim:");
         var fim = Console.ReadLine();
-        Console.WriteLine("Informe o local:");
-        var local = Console.ReadLine();
-        Console.WriteLine("Informe as palestras:");
-        int def = 0;
-        while(def != 0)
-        {
-            Console.WriteLine("0 - Escolhi as palestras");
-            Console.WriteLine("1 - Adicionar palestra");
-        }
-        //var palestra[] = Console.ReadLine();
+        
+        Console.WriteLine("Escolha um local informando o numero dele:");
+        locais.Listar();
+
+        int localEscolhido = int.Parse(Console.ReadLine());
+
+        var novoEvento = new Evento();
 
         Evento evento = new Evento();
-        evento.Id = Guid.NewGuid().ToString();
-        evento.Inicio = DateTime.Parse(inicio);
-        evento.Fim = DateTime.Parse(fim);
-        //evento.Local = local;
-        //evento.Palestras = new palestra[0];
+        novoEvento.Id = Guid.NewGuid().ToString();
+        novoEvento.Inicio = DateTime.Parse(inicio);
+        novoEvento.Fim = DateTime.Parse(fim);
+        
+        novoEvento.Local = locais.Obter(localEscolhido - 1);
 
-        return evento;
+        return novoEvento;
     }
+
+
+    static MeuTipo[] AdicionarNoVetor<MeuTipo>(MeuTipo novo, MeuTipo[] existentes)
+    {
+        MeuTipo[] novoVetor = new MeuTipo[existentes.Length + 1];
+
+        int cont;
+        for ( cont = 0; cont < existentes.Length - 1; cont++)
+        {
+            novoVetor[cont] = existentes[cont];
+        }
+
+        novoVetor[novoVetor.Length - 1] = novo;
+        return novoVetor;
+    }
+
+    static void Listar<TipoDoObjeto>(TipoDoObjeto[] meuVetor) where TipoDoObjeto : EntidadeComID
+    {
+        for(int i = 0; i <= meuVetor.Count(); i++)
+        {
+            Console.WriteLine($"{i + 1}) {meuVetor[i].ObterDescricao()}");
+        }
+    }
+
     private static Palestra CadastrarPalestra()
     {
         Console.WriteLine("Informe o titulo");
@@ -97,69 +118,17 @@ internal class Program
         palestra.Titulo = titulo;
         return palestra;
     }
-    static Palestrante[] AdicionarPalestrante(Palestrante cliente)
-    {
-        Palestrante[] novoVetor = new Palestrante[todosPalestrantes.Length + 1];
-
-        int cont;
-
-        for (cont = 0; cont < todosPalestrantes.Length; cont++)
-        {
-            novoVetor[cont] = todosPalestrantes[cont];
-        }
-
-        novoVetor[novoVetor.Length - 1] = cliente;
-
-        return novoVetor;
-    }
-
-    static Participante[] AdicionarParticipante(Participante cliente)
-
-    {
-        Participante[] novoVetor = new Participante[todosParticipantes.Length + 1];
-
-        int cont;
-
-        for (cont = 0; cont < todosParticipantes.Length; cont++)
-        {
-            novoVetor[cont] = todosParticipantes[cont];
-        }
-
-        novoVetor[novoVetor.Length - 1] = cliente;
-
-        return novoVetor;
-    }
-    static Palestra[] AdicionarPalestra (Palestra palestra)
-    {
-        Palestra[] novoVetor = new Palestra[todasPalestras.Length + 1];
-        int cont;
-        for(cont = 0; cont< todasPalestras.Length; cont++)
-        {
-            novoVetor[cont] = todasPalestras[cont];
-        }
-        novoVetor[novoVetor.Length - 1] = palestra;
-        return novoVetor;
-    }
-    static Evento[] AdicionarEvento(Evento evento)
-    {
-        Evento[] novoVetor = new Evento[todosEventos.Length + 1];
-        int cont;
-        for (cont = 0; cont < todosEventos.Length; cont++)
-        {
-            novoVetor[cont] = todosEventos[cont];
-        }
-        novoVetor[novoVetor.Length - 1] = evento;
-        return novoVetor;
-    }
-    static Participante[] todosParticipantes = [];
-    static Palestrante[] todosPalestrantes = [];
-    static Evento[] todosEventos = [];
-    static Palestra[] todasPalestras = [];
+    
+    static MeusLocais locais = new MeusLocais();
+    static MeusEventos eventos = new MeusEventos();
     private static void Main(string[] args)
     {
         Local localDoEvento;
         Evento evento;
         Palestra palestra;
+        MeusPalestrantes palestrantes = new MeusPalestrantes();
+        MeusParticipantes participantes = new MeusParticipantes();
+        MinhasPalestras palestras = new MinhasPalestras();
 
         Console.WriteLine("Sistema de Gestão de Eventos");
         int opcao = 0;
@@ -185,52 +154,42 @@ internal class Program
             else if (opcao == 20)
             {
                 var novoParticipante = CadastrarParticipante();
-                todosParticipantes = AdicionarParticipante(novoParticipante);
+                participantes.Adicionar(novoParticipante);
             }
 
             else if (opcao == 21)
             {
-                foreach (var item in todosParticipantes)
-                {
-                    Console.WriteLine($"{item.Nome} - {item.Email} - {item.Telefone} - {item.CPF }");
-                }
+                participantes.Listar();
             }
 
             else if (opcao == 30)
             {
-                //Pede para o usuario as informacoes e gera o objeto Palestrante
                 var novoPalestrante = CadastrarPalestrante();
-                //aqui esta adicionando no vetor de todosPalestrantes.
-                todosPalestrantes = AdicionarPalestrante(novoPalestrante);
+                palestrantes.Adicionar(novoPalestrante);
             }
 
             else if (opcao == 31)
             {
-                var novaPalestra = CadastrarPalestra();
-                todasPalestras = AdicionarPalestra(novaPalestra);
+                CadastrarPalestra();
             }
             else if (opcao == 32)
             {
-                foreach (var item in todosPalestrantes)
-                {
-                    Console.WriteLine($"{item.Nome} - {item.Email} - {item.Telefone}");
-                }   
+                palestrantes.Listar();
             }
-
             else if (opcao == 33)
             {
-                foreach (var item in todasPalestras)
-                {
-                    Console.WriteLine($"{item.Titulo}");
-                }
+                palestras.Listar();
             }
 
             else if (opcao == 40)
             {
-                var novoEvento = CadastrarEvento();
-                todosEventos = AdicionarEvento(novoEvento);
+                eventos.Adicionar(CadastrarEvento());
             }
 
+            else if(opcao == 41)
+            {
+                eventos.Listar();
+            }
         }while(opcao != 99);
     }
 }
