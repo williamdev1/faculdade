@@ -6,60 +6,84 @@ internal class Program
 {
     private static Local CadastrarLocal()
     {
-        Console.WriteLine("Informe o nome do local: ");
-        var nomeLocal = Console.ReadLine();
-        Console.WriteLine("Informe o endereco do local: ");
-        var enderecoLocal = Console.ReadLine();
-        Console.WriteLine("Informe a capacidade");
-        var capacidade = Console.ReadLine();
-        Local local = new Local();
-        local.Nome = nomeLocal;
-        local.Endereco = enderecoLocal;
-        local.Capacidade = int.Parse(capacidade);
-        return local;
+        try
+        {
+            Console.WriteLine("Informe o nome do local: ");
+            var nomeLocal = Console.ReadLine();
+            Console.WriteLine("Informe o endereco do local: ");
+            var enderecoLocal = Console.ReadLine();
+            Console.WriteLine("Informe a capacidade");
+            var capacidade = Console.ReadLine();
+            Local local = new Local();
+            local.Nome = nomeLocal;
+            local.Endereco = enderecoLocal;
+            local.Capacidade = int.Parse(capacidade);
+            return local;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("Erro ao cadastrar local, informe os dados corretamente");
+            return null;
+        }
     }
 
     private static Palestrante CadastrarPalestrante()
     {
-        Console.WriteLine("Informe o nome: ");
-        var nome = Console.ReadLine();
-        Console.WriteLine("Informe o telefone: ");
-        var telefone = Console.ReadLine();
-        System.Console.WriteLine("Informe o email: ");
-        var email = Console.ReadLine();
-        System.Console.WriteLine("Informe o Valor Hora em R$: ");
-        var valorHora = Console.ReadLine();
-        
-        Palestrante palestrante = new Palestrante();
-        palestrante.Id = Guid.NewGuid().ToString();
-        palestrante.Nome = nome;
-        palestrante.Email = email;
-        palestrante.Telefone = telefone;
-        palestrante.ValorHora = decimal.Parse(valorHora);
+        try
+        {
+            Console.WriteLine("Informe o nome: ");
+            var nome = Console.ReadLine();
+            Console.WriteLine("Informe o telefone: ");
+            var telefone = Console.ReadLine();
+            System.Console.WriteLine("Informe o email: ");
+            var email = Console.ReadLine();
+            System.Console.WriteLine("Informe o Valor Hora em R$: ");
+            var valorHora = Console.ReadLine();
+            
+            Palestrante palestrante = new Palestrante();
+            palestrante.Id = Guid.NewGuid().ToString();
+            palestrante.Nome = nome;
+            palestrante.Email = email;
+            palestrante.Telefone = telefone;
+            palestrante.ValorHora = decimal.Parse(valorHora);
 
-        return palestrante;
+            return palestrante;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("Erro ao cadastrar palestrante, informe os dados corretamente");
+            return null;
+        }
+        
     }
     private static Participante CadastrarParticipante()
 
     {
-        Console.WriteLine("Informe o nome: ");
-        var nome = Console.ReadLine();
-        Console.WriteLine("Informe o telefone: ");
-        var telefone = Console.ReadLine();
-        System.Console.WriteLine("Informe o email: ");
-        var email = Console.ReadLine();
-        Console.WriteLine("Informe o CPF:");
-        var cpf = Console.ReadLine();
+        try
+        {
+            Console.WriteLine("Informe o nome: ");
+            var nome = Console.ReadLine();
+            Console.WriteLine("Informe o telefone: ");
+            var telefone = Console.ReadLine();
+            System.Console.WriteLine("Informe o email: ");
+            var email = Console.ReadLine();
+            Console.WriteLine("Informe o CPF:");
+            var cpf = Console.ReadLine();
 
-        Participante participante = new Participante();
-        participante.Id = Guid.NewGuid().ToString();
-        participante.Nome = nome;
-        participante.Email = email;
-        participante.Telefone = telefone;
-        participante.CPF = cpf;
+            Participante participante = new Participante();
+            participante.Id = Guid.NewGuid().ToString();
+            participante.Nome = nome;
+            participante.Email = email;
+            participante.Telefone = telefone;
+            participante.CPF = cpf;
 
-        return participante;
-
+            return participante;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("Erro ao cadastrar participante, informe os dados corretamente");
+            throw;
+        }
     }
 
     public static Evento CadastrarEvento()
